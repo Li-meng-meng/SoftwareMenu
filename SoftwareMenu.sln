@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareMenu", "SoftwareMenu\SoftwareMenu.csproj", "{386A019E-1A7A-457E-BD89-35172E47DA9E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Packaging", "Packaging", "{34E19452-FEFE-45C3-99F0-CE501A8B83C4}"
+	ProjectSection(SolutionItems) = preProject
+		Packaging\AppxManifest.xml = Packaging\AppxManifest.xml
+		Packaging\Square150x150Logo.png = Packaging\Square150x150Logo.png
+		Packaging\Square44x44Logo.png = Packaging\Square44x44Logo.png
+		Packaging\StoreLogo.png = Packaging\StoreLogo.png
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{386A019E-1A7A-457E-BD89-35172E47DA9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{386A019E-1A7A-457E-BD89-35172E47DA9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{386A019E-1A7A-457E-BD89-35172E47DA9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{386A019E-1A7A-457E-BD89-35172E47DA9E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {28099D7C-0A1E-4712-86E9-B8EF7DA0C1E0}
+	EndGlobalSection
+EndGlobal
