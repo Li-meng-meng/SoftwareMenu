@@ -147,16 +147,10 @@ void CustomExplorerCommand::ReadCommands(bool multipleFiles, const std::wstring&
 	}
 	else {
 		//localFolder = ApplicationData::Current().LocalFolder().Path();
-		wchar_t path1[MAX_PATH];
-		if (SHGetFolderPathW(NULL, CSIDL_APPDATA, NULL, 0, path1) == S_OK) {
-			std::wstring applicationDataPath = path1;
-			if (!applicationDataPath.empty()) {
-				wchar_t path2[MAX_PATH];
-				if (SHGetFolderPathW(NULL, CSIDL_APPDATA, NULL, 0, path2) == S_OK) {
-					std::wstring localFolder = path2;
-					localFolder += L"\\PDF Reader Pro";
-
-
+		char appDataPath[MAX_PATH];
+		if (SUCCEEDED(SHGetFolderPathA(NULL, CSIDL_APPDATA, NULL, 0, appDataPath))) {
+			std::string pdfReaderProPath = std::string(appDataPath) + "\\PDF Reader Pro";
+			std::wstring localFolder(pdfReaderProPath.begin(), pdfReaderProPath.end());
 					concurrency::create_task([&] {
 						path folder{ localFolder };
 						folder /= "custom_commands";
@@ -180,8 +174,6 @@ void CustomExplorerCommand::ReadCommands(bool multipleFiles, const std::wstring&
 							}
 						}
 						}).wait();
-				}
-			}
 		}
 	}
 
