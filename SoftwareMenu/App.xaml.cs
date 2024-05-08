@@ -41,7 +41,7 @@ namespace SoftwareMenu
                 var path = args[0];
                 var sourcePath = new FileInfo(path);
                 if (sourcePath.Exists)
-                {
+    {
                     //var destPath = new FileInfo(Path.Combine(PhotosFolder.Current, sourcePath.Name));
                     //if (!destPath.Exists)
                     //{
