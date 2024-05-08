@@ -11,40 +11,47 @@
   xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
   xmlns:com="http://schemas.microsoft.com/appx/manifest/com/windows10"
   IgnorableNamespaces="uap uap2 uap3 rescap desktop desktop4 desktop5 uap10 com">
-	<Identity Name="PDFTechEditorexeapp" ProcessorArchitecture="neutral" Publisher="CN=&quot;PDF Technologies, Inc.&quot;, O=&quot;PDF Technologies, Inc.&quot;, S=Tainan City, C=TW, SERIALNUMBER=64910602, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=TW" Version="1.0.0.0"/>
-  <Properties>
-    <DisplayName>PDFTechEditorexeapp</DisplayName>
-    <PublisherDisplayName>Notepad++</PublisherDisplayName>
-    <Logo>StoreLogo.png</Logo>
-    <uap10:AllowExternalContent>true</uap10:AllowExternalContent>
-  </Properties>
-  <Dependencies>
-	  <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19000.0" MaxVersionTested="10.0.19000.0" />
-  </Dependencies>
-  <Capabilities>
-    <rescap:Capability Name="runFullTrust" />
-    <rescap:Capability Name="unvirtualizedResources"/>
-  </Capabilities>
-  <Applications>
-    <Application Id="PDFTechEditorexeapp" Executable="PDFTechEditor.exe" uap10:TrustLevel="mediumIL" uap10:RuntimeBehavior="win32App">
-      <uap:VisualElements AppListEntry="none" DisplayName="Notepad++" Description="Notepad++" BackgroundColor="transparent" Square150x150Logo="Square150x150Logo.png" Square44x44Logo="Square44x44Logo.png">
-      </uap:VisualElements>
-      <Extensions>
-        <desktop4:Extension Category="windows.fileExplorerContextMenus">
-          <desktop4:FileExplorerContextMenus>
-            <desktop5:ItemType Type="*">
-              <desktop5:Verb Id="EditWithNotepadPlusPlus" Clsid="E6950302-61F0-4FEB-97DB-855E30D4A991" />
-            </desktop5:ItemType>
-          </desktop4:FileExplorerContextMenus>
-        </desktop4:Extension>
-        <com:Extension Category="windows.comServer">
-          <com:ComServer>
-            <com:SurrogateServer DisplayName="Notepad++ Shell Extension">
-              <com:Class Id="E6950302-61F0-4FEB-97DB-855E30D4A991" Path="NppShell.x64.dll" ThreadingModel="STA"/>
-            </com:SurrogateServer>
-          </com:ComServer>
-        </com:Extension>
-      </Extensions>
-    </Application>
-  </Applications>
+	<Identity Name="SoftwareMenuexeapp" ProcessorArchitecture="neutral" Publisher="CN=&quot;PDF Technologies, Inc.&quot;, O=&quot;PDF Technologies, Inc.&quot;, S=Tainan City, C=TW, SERIALNUMBER=64910602, OID.2.5.4.15=Private Organization, OID.1.3.6.1.4.1.311.60.2.1.3=TW" Version="1.0.0.0"/>
+	<Properties>
+		<DisplayName>SoftwareMenuexeapp</DisplayName>
+		<PublisherDisplayName>SoftwareMenue++</PublisherDisplayName>
+		<Logo>StoreLogo.png</Logo>
+		<uap10:AllowExternalContent>true</uap10:AllowExternalContent>
+	</Properties>
+	<Dependencies>
+		<TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19000.0" MaxVersionTested="10.0.19000.0" />
+	</Dependencies>
+	<Capabilities>
+		<rescap:Capability Name="runFullTrust" />
+		<rescap:Capability Name="unvirtualizedResources"/>
+	</Capabilities>
+	<Applications>
+		<Application Id="SoftwareMenuexeapp" Executable="SoftwareMenue.exe" uap10:TrustLevel="mediumIL" uap10:RuntimeBehavior="win32App">
+			<uap:VisualElements AppListEntry="none" DisplayName="SoftwareMenue++" Description="SoftwareMenue++" BackgroundColor="transparent" Square150x150Logo="Square150x150Logo.png" Square44x44Logo="Square44x44Logo.png">
+			</uap:VisualElements>
+			<Extensions>
+
+				<desktop4:Extension Category="windows.fileExplorerContextMenus">
+					<desktop4:FileExplorerContextMenus>
+						<desktop5:ItemType Type="Directory"  >
+							<desktop5:Verb Id="CustomMenu" Clsid="62213977-E22F-49D5-B4DB-29E72E6A5D38" />
+						</desktop5:ItemType>
+						<desktop5:ItemType Type="*"  >
+							<desktop5:Verb Id="CustomMenu" Clsid="62213977-E22F-49D5-B4DB-29E72E6A5D38" />
+						</desktop5:ItemType>
+						<desktop5:ItemType Type="Directory\Background">
+							<desktop5:Verb Id="CustomMenu" Clsid="62213977-E22F-49D5-B4DB-29E72E6A5D38" />
+						</desktop5:ItemType>
+					</desktop4:FileExplorerContextMenus>
+				</desktop4:Extension>
+				<com:Extension Category="windows.comServer">
+					<com:ComServer>
+						<com:SurrogateServer  DisplayName="SoftwareMenue Shell Extension">
+							<com:Class Id="62213977-E22F-49D5-B4DB-29E72E6A5D38" Path="ContextMenuCustomHostLite.dll" ThreadingModel="STA"/>
+						</com:SurrogateServer>
+					</com:ComServer>
+				</com:Extension>
+			</Extensions>
+		</Application>
+	</Applications>
 </Package>

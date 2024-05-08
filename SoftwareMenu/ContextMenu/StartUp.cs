@@ -26,8 +26,8 @@ namespace PhotoStoreDemo
                 //TODO - update the value of externalLocation to match the output location of your VS Build binaries and the value of 
                 //sparsePkgPath to match the path to your signed Sparse Package (.msix). 
                 //Note that these values cannot be relative paths and must be complete paths
-                string externalLocation = @"";
-                string sparsePkgPath = @"";
+                string externalLocation = @"C:\Users\kdanmobile\source\repos\SoftwareMenu\SoftwareMenu\bin\Debug\SoftwareMenu.exe";
+                string sparsePkgPath = @"C:\Users\kdanmobile\source\repos\SoftwareMenu\SoftwareMenu\bin\Debug\SoftwareMenuexeapp.msix";
 
                 //Attempt registration
                 if (registerSparsePackage(externalLocation, sparsePkgPath))
