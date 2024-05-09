@@ -146,35 +146,30 @@ void CustomExplorerCommand::ReadCommands(bool multipleFiles, const std::wstring&
 		} while (current.MoveNext());
 	}
 	else {
-		//localFolder = ApplicationData::Current().LocalFolder().Path();
-		char appDataPath[MAX_PATH];
-		if (SUCCEEDED(SHGetFolderPathA(NULL, CSIDL_APPDATA, NULL, 0, appDataPath))) {
-			std::string pdfReaderProPath = std::string(appDataPath) + "\\PDF Reader Pro";
-			std::wstring localFolder(pdfReaderProPath.begin(), pdfReaderProPath.end());
-					concurrency::create_task([&] {
-						path folder{ localFolder };
-						folder /= "custom_commands";
-						if (exists(folder) && is_directory(folder)) {
-							std::wstring ext;
-							std::wstring name;
-							bool isDirectory = true; //TODO current_path may be empty when right click on desktop.  set directory as default?
-							if (!multipleFiles) {
-								PathHelper::getExt(currentPath, isDirectory, name, ext);
-							}
+		const auto localFolder = ApplicationData::Current().LocalFolder().Path();
+		concurrency::create_task([&] {
+			path folder{ localFolder.c_str() };
+			folder /= "custom_commands";
+			if (exists(folder) && is_directory(folder)) {
+				std::wstring ext;
+				std::wstring name;
+				bool isDirectory = true; //TODO current_path may be empty when right click on desktop.  set directory as default?
+				if (!multipleFiles) {
+					PathHelper::getExt(currentPath, isDirectory, name, ext);
+				}
 
-							for (auto& file : directory_iterator{ folder }) {
-								std::ifstream fs{ file.path() };
-								std::stringstream buffer;
-								buffer << fs.rdbuf(); //TODO 
-								auto content = winrt::to_hstring(buffer.str());
-								auto command = Make<CustomSubExplorerCommand>(content);
-								if (command->Accept(multipleFiles, isDirectory, name, ext)) {
-									m_commands.push_back(command);
-								}
-							}
-						}
-						}).wait();
-		}
+				for (auto& file : directory_iterator{ folder }) {
+					std::ifstream fs{ file.path() };
+					std::stringstream buffer;
+					buffer << fs.rdbuf(); //TODO 
+					auto content = winrt::to_hstring(buffer.str());
+					auto command = Make<CustomSubExplorerCommand>(content);
+					if (command->Accept(multipleFiles, isDirectory, name, ext)) {
+						m_commands.push_back(command);
+					}
+				}
+			}
+			}).wait();
 	}
 
 	if (m_commands.size() > 1) {
