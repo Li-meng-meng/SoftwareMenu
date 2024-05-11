@@ -8,7 +8,7 @@ class
 	//#define CMC_GITHUB_RELEASE
 	//#define CMC_STORE_RELEASE
 
-	__declspec(uuid("62213977-E22F-49D5-B4DB-29E72E6A5D39"))
+	__declspec(uuid("62213977-E22F-49D5-B4DB-29E72E6A5D42"))
 
 	CustomExplorerCommand : public BaseExplorerCommand {
 public:

@@ -103,6 +103,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="menutest.pfx" />
     <None Include="packages.config" />
     <None Include="SoftwareMenu.exe.manifest" />
     <None Include="Properties\Settings.settings">
